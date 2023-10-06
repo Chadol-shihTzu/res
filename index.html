@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 뷰포트(viewport) maxium minimum 넣어줘야함 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- swiper.css cdn으로 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" type="text/css">
+    <!-- 사용자 정의 css 연결 -->
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+    <!-- 파비콘 넣기 -->
+    <link rel="shortcut icon" href="img/animal_leo_lion_icon.png">
+    <!-- 제이쿼리 라이브러리 연결 -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- swiper.js cdn으로 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- gsap 플러그인 연결 -->
+    <script src="js/gsap.min.js"></script>
+    <!-- 사용자 정의 js 연결 -->
+    <script src="js/main.js"></script>
+    <title>England Premier League</title>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="center">
+                <!-- 로고 -->
+                <div class="logo">
+                    <a href="index.html">
+                        <!-- <img src="img/award_icon.png" alt="logo"> -->
+                    </a>
+                </div>
+                <!-- 네비게이션 -->
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">경기결과</a>
+                            <ul class="sub">
+                                <li><a href="#">경기결과</a></li>
+                                <li><a href="#">사진</a></li>
+                                <li><a href="#">영상</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">순위표</a>
+                        </li>
+                        <li>
+                            <a href="#">뉴스</a>
+                            <ul class="sub">
+                                <li><a href="#">뉴스</a></li>
+                                <li><a href="#">이적시장</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">스텟정보</a>
+                            <ul class="sub">
+                                <li><a href="#">선수</a></li>
+                                <li><a href="#">감독</a></li>
+                                <li><a href="#">기록</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">생중계</a>
+                            <ul class="sub">
+                                <li><a href="#">다시보기</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">게시판</a>
+                            <ul class="sub">
+                                <li><a href="#">공지사항</a></li>
+                                <li><a href="#">자유게시판</a></li>
+                                <li><a href="#">칼럼</a></li>
+                                <li><a href="#">Q&A</a></li>
+                                <li><a href="#">이벤트</a></li>
+                            </ul>
+                        </li>
+                        <li class="community">
+                            <a href="#">커뮤니티</a>
+                            <ul class="sub">
+                                <li><a href="#">맨체스터시티</a></li>
+                                <li><a href="#">맨체스터유나이티드</a></li>
+                                <li><a href="#">크리스탈펠리스</a></li>
+                                <li><a href="#">노팅엄포레스트</a></li>
+                                <li><a href="#">토트넘</a></li>
+                                <li><a href="#">셰필드유나이티드</a></li>
+                                <li><a href="#">번리</a></li>
+                                <li><a href="#">아스톤빌라</a></li>
+                                <li><a href="#">웨스트햄</a></li>
+                                <li><a href="#">브라이튼</a></li>
+                                <li><a href="#">루턴타운</a></li>
+                                <li><a href="#">뉴캐슬</a></li>
+                                <li><a href="#">본머스</a></li>
+                                <li><a href="#">울버햄튼</a></li>
+                                <li><a href="#">에버튼</a></li>
+                                <li><a href="#">브랜트포드</a></li>
+                                <li><a href="#">리버풀</a></li>
+                                <li><a href="#">첼시</a></li>
+                                <li><a href="#">아스날</a></li>
+                                <li><a href="#">풀럼</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- 다국어지원, 메뉴버튼 -->
+                <div class="top_menu">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <svg aria-labelledby="languageIconTitle" color="#2329D6" fill="none" height="100%" class="lang" role="img" stroke="#ffffff" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1" viewBox="0 0 24 24" width="100%" xmlns="http://www.w3.org/2000/svg"><title id="languageIconTitle"/><circle cx="12" cy="12" r="10"/><path class="lang" d="M12,22 C14.6666667,19.5757576 16,16.2424242 16,12 C16,7.75757576 14.6666667,4.42424242 12,2 C9.33333333,4.42424242 8,7.75757576 8,12 C8,16.2424242 9.33333333,19.5757576 12,22 Z" stroke-linecap="round"/><path  class="lang"d="M2.5 9L21.5 9M2.5 15L21.5 15" stroke-linecap="round"/></svg></a>
+                        </li>
+                        <li>
+                            <a href="#" class="menu_btn">
+                                <svg enable-background="new 0 0 32 32"id="Editable-line" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><line fill="none" id="XMLID_103_" class="hamburger" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="7" x2="25" y1="16" y2="16"/><line class="hamburger" fill="none" id="XMLID_102_" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="7" x2="25" y1="25" y2="25"/><line  class="hamburger" fill="none" id="XMLID_101_" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="7" x2="25" y1="7" y2="7"/></svg></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 서브메뉴배경 -->
+            <div class="sub_bg"></div>
+        </header>
+
+        <section class="sec1">
+            <!-- 메인 슬라이드 - swiper plugin-->
+            <div class="swiper main">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide s1">
+                        <div class="sb s1back">
+                            <h1>[EPL] Man City begin quest for historic four top-flight titles in a row at Burnley. </h1>
+                            <p>There are few records left for Pep Guardiola and his City side to break after their Treble-winning campaign last time out, but there is one that has remained untouched since the inception of the English top flight in 1888 and that is the quest for four straight championships.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide s2">
+                        <div class="sb s2back">
+                            <h1>[EPL] Man City confirm 20-man squad as all Premier League home games sell out.</h1>
+                            <p>City took the decision to hold back some tickets for all games to spread the cost for anyone wanting to attend multiple games, and will put a second and final wave of tickets on offer next month. The club are also pushing ahead with their expansion of the North Stand that will see capacity increase to over 60,000.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide s3">
+                        <div class="sb s3back">
+                            <h1>[EPL] Transfer news: Summer transfer window 2023 | Premier League.</h1>
+                            <p>Sources have confirmed to 90min that though Liverpool are not interested in Toney, Arsenal have been keeping a watchful eye on him. However, they are unlikely to move for a new striker unless they encounter an injury pile-up, while long-term target Dusan Vlahovic is believed to be more easily attainable.</p>
+                        </div>
+                    </div>   
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <section class="sec2 scrollSet">
+            <!-- 순위표 경기결과 -->
+            <div class="center">
+                <div class="table ani firstAni">
+                    <h2>Tables</h2>
+                    <div class="table_photo">
+                    </div>
+                    <button type="button"><a href="#">View More</a></button>
+                </div>
+                <div class="result ani secondAni">
+                    <h2>Results</h2>
+                    <p>England Premier League</p>
+                    <div class="result_photo"></div>
+                    <button type="button"><a href="#">View More</a></button>
+                </div>
+                <div class="result ani secondAni">
+                    <h2>Results</h2>
+                    <p>Champions League</p>
+                    <div class="result_photo2"></div>
+                    <button type="button"><a href="#">View More</a></button>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec3 scrollSet">
+            <div class="center">
+                <div class="content ani firstAni">
+                    <p>MATCH WEEK 15 <br> Highlight Videos</p>
+                    <button type="button"><a href="#">All Videos</a></button>
+                </div>
+                <!-- swiper slide (매치데이 하이라이트영상)-->
+                <div class="swiper highlight ani secondAni">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">  <!--swiper-slide-->
+                            <div class="image thumb1">
+                                <div class="background"></div>
+                                <div class="play_button">
+                                    <a href="#"><img src="img/play_button.png" alt="play button"></a>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image thumb2">
+                                <div class="background"></div>
+                                <div class="play_button">
+                                    <a href="#"><img src="img/play_button.png" alt="play button"></a>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image thumb3">
+                                <div class="background"></div>
+                                <div class="play_button">
+                                    <a href="#"><img src="img/play_button.png" alt="play button"></a>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image thumb4">
+                                <div class="background"></div>
+                                <div class="play_button">
+                                    <a href="#"><img src="img/play_button.png" alt="play button"></a>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="image thumb5">
+                                <div class="background"></div>
+                                <div class="play_button">
+                                    <a href="#"><img src="img/play_button.png" alt="play button"></a>
+                                </div>
+                            </div>                            
+                        </div> <!--swiper-slide-->
+                    </div><!--swiper-wrapper-->
+                    <!-- pagination progress -->
+                    <div class="swiper-pagination"></div>
+                </div><!-- swiper-->
+                <!-- prev버튼, next버튼 -->
+                <div class="swiper-button-next ani secondAni"></div>
+                <div class="swiper-button-prev ani secondAni"></div>
+            </div>
+        </section>
+
+        <section class="sec4 scrollSet">
+            <div class="center">
+                <div class="content ani firstAni">
+                    <p>Featured Player(Manager)</p>
+                </div>
+                <div class="swiper info ani secondAni">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="player goal">
+                                <div class="more">
+                                    <button type="button"><a href="#">View Prifile</a></button>
+                                </div>
+                            </div>
+                        </div> <!--swiper-slide-->
+                        <div class="swiper-slide">
+                            <div class="player assist">
+                                <div class="more">
+                                    <button type="button"><a href="#">View Prifile</a></button>
+                                </div>
+                            </div>
+                        </div> <!--swiper-slide-->
+                        <div class="swiper-slide">
+                            <div class="player pass">
+                                <div class="more">
+                                    <button type="button"><a href="#">View Prifile</a></button>
+                                </div>
+                            </div>
+                        </div> <!--swiper-slide-->
+                        <div class="swiper-slide">
+                            <div class="player clean">
+                                <div class="more">
+                                    <button type="button"><a href="#">View Prifile</a></button>
+                                </div>
+                            </div>
+                        </div> <!--swiper-slide-->
+                        <div class="swiper-slide">
+                            <div class="player tackle">
+                                <div class="more">
+                                    <button type="button"><a href="#">View Prifile</a></button>
+                                </div>
+                            </div>
+                        </div> <!--swiper-slide-->
+                    </div><!--swiper-wrapper-->
+                    <!-- pagination progress -->
+                    <div class="swiper-pagination"></div>
+                </div><!-- swiper-->
+                <!-- prev버튼, next버튼 -->
+                <div class="swiper-button-next ani secondAni"></div>
+                <div class="swiper-button-prev ani secondAni"></div>
+            </div>
+        </section>
+
+        <section class="sec5 scrollSet">
+            <div class="center">
+                <div class="content ani firstAni">
+                    <p>순위통계</p>
+                </div>
+                <div class="graph ani firstAni">
+                    <img src="img/epl table changes.png" alt="epl table changes">
+                </div>
+                <div class="statics ani secondAni" id="count-area">
+                    <ul>
+                        <li>
+                            <img src="img/tropy.png" alt="tropy">
+                            <h2>1위를 오래한 클럽<p>맨체스터시티</p></h2>
+                            <div class="count">
+                                <br><br><br>
+                                <span class="num" id="count-item1">0</span>
+                                <b>주연속</b>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/shoot.png" alt="shoot">
+                            <h2>최다득점팀<p>맨체스터시티</p></h2>
+                            <div class="count">&nbsp;
+                                <span class="num" id="count-item2">0</span>
+                                <b>득점</b>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="img/sad.png" alt="sad">
+                            <h2>최다실점팀<p>사우스햄튼</p></h2>
+                            <div class="count">&nbsp;
+                                <span class="num" id="count-item3">0</span>
+                                <b>실점</b>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="sec6 scrollSet">
+            <div class="center">
+                <div class="content ani firstAni">
+                    <p>EPL CLUB</p>
+                    <span>이미지를 클릭하면 각 구단의 홈페이지로 이동합니다.</span>
+                </div>
+                <div class="club_logo">
+                    <ul>
+                        <li class="logo1 ani ani1"><a href="#"></a></li>
+                        <li class="logo2 ani ani2"><a href="#"></a></li>
+                        <li class="logo3 ani ani3"><a href="#"></a></li>
+                        <li class="logo4 ani ani4"><a href="#"></a></li>
+                        <li class="logo5 ani ani5"><a href="#"></a></li>
+                        <li class="logo6 ani ani6"><a href="#"></a></li>
+                        <li class="logo7 ani ani7"><a href="#"></a></li>
+                        <li class="logo8 ani ani8"><a href="#"></a></li>
+                        <li class="logo9 ani ani9"><a href="#"></a></li>
+                        <li class="ani ani9"><button type="button"><a href="#">View More</a></button></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    <div class="wrap">
+        <div class="support">
+            <h1>후원기업</h1>
+            <ul>
+                <li class="sp1"><a href="#"></a></li>
+                <li class="sp2"><a href="#"></a></li>
+                <li class="sp3"><a href="#"></a></li>
+                <li class="sp4"><a href="#"></a></li>
+                <li class="sp5"><a href="#"></a></li>
+            </ul>
+        </div>
+
+        <footer>
+            <div class="center">
+                
+                <div class="footer1">
+                    <div class="logo">
+                        <a href="index.html"><img src="img/award_icon.png" alt="logo"></a>
+                    </div>
+                    <div class="information">
+                        <ul>
+                            <li><a href="#">이용약관</a></li>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">고객정보취급방침</a></li>
+                            <li><a href="#">민원접수</a></li>
+                        </ul>
+                    </div>
+                    <address>
+                        TEL : 080-335-0020 <br>인천 서구 서곶로 284 4층, 5층
+                    </address>
+                    <p>COPYRIGHTⓒ 2023 Jo Du Hyeon. ALL RIGHTS RESERVED.</p>
+                </div>
+                <div class="footer2">
+                    <div class="family_site">
+                        <a href="#">Family Site</a>
+                        <div class="family_list">
+                            <ul>
+                                <li><a href="#">FA ASSOCIATION</a></li>
+                                <li><a href="#">SKY SPORTS</a></li>
+                                <li><a href="#">ESPN FC</a></li>
+                                <li><a href="#">EURO SPORTS</a></li>
+                                <li><a href="#">BBC</a></li>
+                                <li><a href="#">MANCHESTER CITY</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="top">
+        <a href="#"><img src="img/arrow_botton_menu_up_icon.png" alt=""></a>
+    </div>
+
+    <script>
+    (function($) {
+            $.AdjustZoom = function(options) {
+            var option = { zoomRatio : 100 };
+            $.extend(option, options);
+            // 브라우저 배율이 100% 가 아닌 경우 처리
+            if(screen.logicalXDPI != screen.deviceXDPI) {
+                try {
+                //alert(screen.availWidth+", "+screen.logicalXDPI+", "+screen.deviceXDPI);
+                        var ratio = screen.logicalXDPI / screen.deviceXDPI;
+                        var ratio_reverse = screen.deviceXDPI / screen.logicalXDPI;
+                        $('body').css('zoom', ( ratio * option.zoomRatio)+'%');
+                        $('body').width(screen.availWidth * ratio_reverse );
+            }catch (e) {
+                alert("브라우저 배율 보정 중 오류가 발생하였습니다. 창을 닫은 후 다시 열어 주시기 바랍니다.");
+            }
+        }
+    };
+    })(jQuery);
+    //sec5영역의 count animation
+    // 카운팅 애니메이션 함수
+    function count(element, start, end, duration) {
+        let current = start;
+        const range = end - start;
+        const increment = range / (duration / 10);
+        const stepTime = 50; // 10ms 마다 증가하도록 설정
+
+        let timer = setInterval(function() {
+            current += increment;
+            if (current >= end) {
+                clearInterval(timer);
+                current = end;
+            }
+            element.textContent = formatNumber(current, end);
+        }, stepTime);
+    }
+
+    function formatNumber(number, end) {
+        if (Number.isInteger(end)) {
+            return number.toFixed(0).replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        } else {
+            return number.toFixed(1);
+        }
+    }
+
+    // 스크롤 이벤트 리스너
+    window.addEventListener('scroll', function() {
+        const countArea = document.getElementById('count-area');
+        const countAreaPosition = countArea.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight;
+
+        if (countAreaPosition < screenPosition / 2) { // 요소가 반이상 보였을 때 실행
+
+            const count1 = document.getElementById('count-item1');
+            count(count1, 0, 15, 300);
+
+            const count2 = document.getElementById('count-item2');
+            count(count2, 0, 103, 300);
+
+            const count3 = document.getElementById('count-item3');
+            count(count3, 0, 87, 300);
+
+            // 이벤트 리스너 삭제
+            window.removeEventListener('scroll', arguments.callee);
+        }
+    });
+    </script>
+</body>
+</html>

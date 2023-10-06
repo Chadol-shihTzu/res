@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
+html, body{font-family: 'Noto Sans', sans-serif; overflow-x: hidden;} /* 네비게이션 오른쪽 -100% 했을때 전체적으로 안움직이게 막기 */
+*{margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans', sans-serif;}
+li{list-style: none;}
+a{text-decoration: none; color: black; display: block; 
+    white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+img{width: 100%;}
+header, section, footer{width: 100%;}
+.wrap{width: 100%;}
+
+/* 모바일 버전 (미디어쿼리안쓰면 모바일로 적용) */
+.center{width: 100%; margin: 0 auto;}
+/* z-index:100; 해서 슬라이드랑 겹치기 */
+header{top: 0; left: 0;
+    height: 70px; padding: 5%; position: fixed; background-color: transparent; z-index: 100; padding: 10px;
+}
+header.minimize .center .logo{background-image: url(../img/award_icon_black.png);}
+header.minimize{background-color: #ffffff;}
+header.minimize .center .top_menu ul li .lang{stroke: #333333;}
+header.minimize .center .top_menu ul li .hamburger{stroke: #333333;}
+header .center{
+    display: flex; justify-content: space-between; align-items: center; height: 60px;
+}
+/* 접속한 장치의 가로길이를 100%로 보고 그 길이의 20% / 픽셀로하면 큰핸드폰이나 작은핸드폰이나 사이즈가 고정되므로*/
+/* %단위는 부모객체(.center)기준임 */
+header .center .logo{background-image: url(../img/award_icon.png); background-position: center; background-size: cover; background-repeat: no-repeat;
+    padding-left: 25px; width: 20vw; height: 25px;
+} /* 로고가로길이 / 장치의 가로픽셀 * 100 */
+/* 모바일 버전에서는 네비게이션 안보임 */
+header .center nav > ul > li > a.active{color: #7030A0;}
+header .center nav{height: 100vh; border-top: 1px solid #ccc; background-color: rgb(255, 255, 255);
+    display: block; z-index: 110; width: 100%; position: fixed; right: -100%; top: 60px; padding: 10vw 0;
+}
+header .center nav ul li a{font-size: 6vw; color: rgb(0, 0, 0); padding: 2vw 10vw; font-weight: bold;}
+header .center nav .sub{background-color: #f4f4f4; padding: 4vw 12vw; margin-bottom: 5vw; display: none;}
+header .center nav .sub li a{font-size: 4vw; font-weight: normal; padding: 1.6vw; color: #666; font-weight: bold;}
+/* 주메뉴 옆의 + 버튼 */
+header .center nav > ul > li > a{position: relative;}
+header .center nav > ul > li > a:before{
+    content: ""; position: absolute; width: 3px; height: 16px; background-color: #222; right: 30px; top: 50%;
+    transform: translateY(-50%);
+}
+header .center nav > ul > li > a:after{
+    content: ""; position: absolute; width: 16px; height: 3px; background-color: #222; right: 23px; top: 50%;
+    transform: translateY(-50%);
+}
+header .center nav > ul > li > a.active:before{opacity: 0;}
+header .center nav > ul > li > a.active:before{background-color: #7030A0;}
+
+/* 모바일 버전에서는 서브메뉴 배경 숨김 */
+header .sub_bg{display: none;}
+header .center .top_menu{width: 15vw; margin-right: 10px;}
+header .center .top_menu ul{display: flex; justify-content: space-between;}
+header .center .top_menu ul li{width: 6vw;}
+header .center .top_menu ul li svg{width: 100%;}
+
+
+/* 메인 슬라이드 - swiper */
+section .main .swiper-slide{
+    background-position: center; background-size: cover; background-repeat: no-repeat;
+    /* 접속한 모바일 장치의 세로길이만큼 슬라이드 높이 설정 */
+    width: 100%; height: 100vh;
+}
+section .main .swiper-slide h1:hover{cursor: pointer; text-decoration: underline;}
+section .main .swiper-slide p:hover{cursor: pointer; text-decoration: underline;}
+/* 글자를 브라우저에서 안보이게 설정 - 들여쓰기 text-indent:-9999px; 안보이지만 기록되어있어서 시각장애인용*/
+section .main .swiper-slide h1{color: white; font-size: 20px; padding: 10px 50px 10px 50px; }
+section .main .swiper-slide p{text-indent: -9999px;}
+section .main .s1{background-image: url(../img/slide1.jpg);}
+section .main .s2{background-image: url(../img/slide2.jpg);}
+section .main .s3{background-image: url(../img/slide3.jpg);}
+section .main .sb{
+    background-color: rgba(0, 0, 0, 0.5); bottom: 0; position: absolute; height: 120px; width: 100%;
+}
+
+/* 메인 슬라이드의 페이지네이션 위치변경 */
+.swiper .swiper-pagination{bottom: 150px;}
+/* 메인 슬라이드의 페이지네이션 커스텀 */
+.swiper .swiper-pagination-bullet{
+    width: 45px; height: 8px; border: 1px solid rgb(255, 219, 219); border-radius: 2px; background-color:white;
+}
+/* 메인 슬라이드의 페이지네이션 활성화 되었을 때 스타일 커스텀 */
+.swiper .swiper-pagination-bullet-active{
+    background:linear-gradient(to right, rgb(84, 84, 255), rgb(255, 111, 255))
+}
+.sec2, .sec3, .sec4, .sec5, .sec6{padding: 12.5vw 6vw;}
+.sec2{margin-top: 100px; margin-bottom: 100px;}
+.sec2 .center {width: 100%;}
+.sec2 .table{margin-bottom: 50px;}
+.sec2 .table, .result{width: 100%; height: 40vh; border: 1px solid rgb(197, 197, 197); position: relative; border-radius: 10px;}
+.sec2 .result{margin-bottom: 70px;}
+.sec2 .center div button{
+    position: absolute; bottom: 10px; right: 10px; width: 40%; height: 10%; border-radius: 15px;
+    background-color: #7030A0; border: none;
+}
+.sec2 .center div button a{color: white;}
+.sec2 .center h2{position: absolute; top: -40px;}
+.sec2 .center .result p{position: absolute; right: 10px; top: -30px;}
+.sec2 .center .table .table_photo{border-radius: 10px;
+    background-image: url(../img/tables.png); background-position: top; background-size: cover; 
+    width: 100%; height: 100%; background-repeat: no-repeat;
+}
+.sec2 .center .result .result_photo{border-radius: 10px;
+    background-image: url(../img/match\ result\ .png); background-position: top; background-size: cover; 
+    width: 100%; height: 100%; background-repeat: no-repeat;
+}
+.sec2 .center .result .result_photo2{border-radius: 10px;
+    background-image: url(../img/result_champs.png); background-position: top; background-size: contain; 
+    width: 100%; height: 100%; background-repeat: no-repeat;
+}
+
+.sec3{background-color: rgb(241, 241, 241); margin-bottom: 100px;}
+.sec3 .center .content p, .sec4 .center .content p{font-weight: bold; font-size: 40px;}
+.sec3 .center, .sec4 .center{align-items: flex-start;}
+.sec3 .center .content p, .sec4 .center .content p{margin: 10px 0 30px;}
+.sec3 .swiper, .sec4 .swiper{margin-top: 30px; width: 100%;}
+.sec3 .swiper .swiper-slide, .sec4 .swiper .swiper-slide{
+    background-color: #fff; border-radius: 30px;
+}
+.sec3 .swiper .swiper-slide p, .sec4 .swiper .swiper-slide p{text-indent: 0;}
+/* progressbar 숨김 */
+.sec3 .swiper .swiper-pagination, .sec4 .swiper .swiper-pagination{display: none;}
+/* prev 버튼, next 버튼 숨김 */
+.sec3 .swiper-button-prev,
+.sec4 .swiper-button-prev,
+.sec3 .swiper-button-next,
+.sec4 .swiper-button-next{display: none;}
+section .swiper .swiper-slide .image{border-radius: 30px;
+    width: 100%; height: 250px; background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+.sec3 .center .swiper-slide div .play_button{
+    position: absolute; bottom: 80px; right:75px; border-radius: 50px; width: 70px;
+}
+.sec3 .center .swiper-slide div .background{
+    width: 100%; height:100%; background-color: rgba(0, 0, 0, 0.3); border-radius: 30px;
+}
+.sec3 .highlight .swiper-slide .thumb1{background-image: url(../img/thumnail1.jpg);}
+.sec3 .highlight .swiper-slide .thumb2{background-image: url(../img/thumnail2.jpg);}
+.sec3 .highlight .swiper-slide .thumb3{background-image: url(../img/thumnail3.jpg);}
+.sec3 .highlight .swiper-slide .thumb4{background-image: url(../img/kante-havertz.jpg);}
+.sec3 .highlight .swiper-slide .thumb5{background-image: url(../img/julian-alvarez.jpg);}
+
+.sec3 .center div button{border: 1px solid #7030A0;
+    background-color: white; width: 40%; height: 40px; border-radius: 25px;
+}
+
+.sec4{background-color: rgb(241,241,241); margin-bottom: 100px;}
+section .swiper .swiper-slide .player{border-radius: 30px;
+    width: 100%; height: 350px; background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+.sec4 .info .swiper-slide .goal{background-image: url(../img/goal\ rank.png);}
+.sec4 .info .swiper-slide .assist{background-image: url(../img/assist\ rank.png);}
+.sec4 .info .swiper-slide .pass{background-image: url(../img/pass\ rank.png);}
+.sec4 .info .swiper-slide .clean{background-image: url(../img/clean\ sheet.png);}
+.sec4 .info .swiper-slide .tackle{background-image: url(../img/tackle.png);}
+.sec4 .info .swiper-slide div .more button{border: 1px solid #7030A0;
+    background-color: white; width: 40%; height: 35px; border-radius: 25px;
+    bottom: 25px; right: 15px; position: absolute;
+}
+
+.sec5{background-color: rgb(241,241,241); margin-bottom: 100px; height: 500px;}
+.sec5 .center > .content > p{font-size: 40px; font-weight: bold; margin-bottom: 10px;}
+.sec5 .graph{display: none;}
+.sec5 .statics ul li{display: flex; flex-flow: row nowrap; align-items: center; margin-bottom: 30px;}
+.sec5 .statics ul li img{width: 45px;}
+.sec5 .center .statics h2{font-size: 25px; white-space: nowrap;}
+.sec5 .center .statics p{color: rgb(79, 176, 255); font-weight: bold; font-size: 25px;}
+.sec5 .center .statics ul li:last-child p{color: rgb(255, 76, 76);}
+.sec5 .center .statics .count span{font-size: 11vw; letter-spacing: -8px;}
+.sec5 .center .statics .count b{font-size: 20px; white-space: nowrap; letter-spacing: -5px;}
+
+.sec6{background-color: rgb(241,241,241); height: 100vh;}
+.sec6 .center{gap: 0; align-items: flex-start;}
+.sec6 .center .content p{font-size: 40px; font-weight: bold; margin-bottom: 10px; line-height: 30px;}
+.sec6 .center span{font-size: 18px; color: gray; letter-spacing: -4px;}
+.sec6 .center button{border: 1px solid #7030A0; margin-top: 20px;
+    background-color: white; width: 40%; height: 35px; border-radius: 25px;}
+.sec6 .center .club_logo{margin-top: 60px;}
+.sec6 .center .club_logo ul{
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); /* 좌,우 (열기준) */
+    grid-auto-rows: minmax(15%,auto); /* 상,하 (행기준) */
+    grid-template-areas: 
+    "list01 list02"
+    "list03 list04"
+    "list05 list06"
+    "list07 list08"
+    "list09 list10"
+    ;
+}
+.sec6 .center .club_logo ul li:first-child{grid-area:list01;}
+.sec6 .center .club_logo ul li:nth-child(2){grid-area:list02;}
+.sec6 .center .club_logo ul li:nth-child(3){grid-area:list03;}
+.sec6 .center .club_logo ul li:nth-child(4){grid-area:list04;}
+.sec6 .center .club_logo ul li:nth-child(5){grid-area:list05;}
+.sec6 .center .club_logo ul li:nth-child(6){grid-area:list06;}
+.sec6 .center .club_logo ul li:nth-child(7){grid-area:list07;}
+.sec6 .center .club_logo ul li:nth-child(8){grid-area:list08;}
+.sec6 .center .club_logo ul li:nth-child(9){grid-area:list09;}
+.sec6 .center .club_logo ul li:last-child{grid-area:list10;}
+
+.sec6 .center .club_logo ul li{
+    width: 155px; height: 100px; border: 1px solid black; margin: 10px; border-radius: 20px;
+    background-position: center; background-size: cover; background-repeat: no-repeat;
+}
+.sec6 .center .club_logo ul li button{width: 150px; height: 50px;}
+.sec6 .center .club_logo ul .logo1{background-image: url(../img/Brighton\ &\ Hove\ Albion\ FC.jpg);}
+.sec6 .center .club_logo ul .logo2{background-image: url(../img/chelsea.jpg);}
+.sec6 .center .club_logo ul .logo3{background-image: url(../img/aston\ villa.jpg);}
+.sec6 .center .club_logo ul .logo4{background-image: url(../img/newcastle.jpg);}
+.sec6 .center .club_logo ul .logo5{background-image: url(../img/burnley.jpg);}
+.sec6 .center .club_logo ul .logo6{background-image: url(../img/manchester-united.jpg);}
+.sec6 .center .club_logo ul .logo7{background-image: url(../img/fullham.jpg);}
+.sec6 .center .club_logo ul .logo8{background-image: url(../img/manchester-city.jpg);}
+.sec6 .center .club_logo ul .logo9{background-image: url(../img/liverpool.jpg);}
+.sec6 .center .club_logo ul li:last-child{border: none;}
+
+.support{background-color: rgb(241,241,241); margin-top: 100px; }
+.support h1{text-align: center; margin-bottom:30px; padding-top: 30px;}
+.support ul{border-bottom: 1px solid white;
+    display: flex; justify-content: space-between; padding: 0 30px; padding-bottom: 40px;
+}
+.support ul li{
+    width: 50px; height: 50px; margin-right: 10px; border-radius: 10px;
+    background-position: center; background-repeat: no-repeat; background-size: contain;
+}
+.support ul .sp1{background-image: url(../img/nike_icon.png);}
+.support ul .sp2{background-image: url(../img/lg_icon.png);}
+.support ul .sp3{background-image: url(../img/apple_logo_icon.png);}
+.support ul .sp4{background-image: url(../img/amazon_icon.png);}
+.support ul .sp5{background-image: url(../img/adidas_icon.png);}
+
+/* section안의 ani객체들이 서서히 나타나는 애니메이션 */
+.ani{
+    opacity: 0; transform: translateY(100px); transition: all 1s;
+}
+.ani.active{
+    opacity: 1; transform: translateY(0);
+}
+.firstAni{transition-delay:0s;}
+.secondAni{transition-delay: 0.5s;}
+.ani1{transition-delay: 0.55s;}
+.ani2{transition-delay: 0.6s;}
+.ani3{transition-delay: 0.65s;}
+.ani4{transition-delay: 0.7s;}
+.ani5{transition-delay: 0.75s;}
+.ani6{transition-delay: 0.8s;}
+.ani7{transition-delay: 0.85s;}
+.ani8{transition-delay: 0.9s;}
+.ani9{transition-delay: 0.95s;}
+
+footer{font-size: 14px; background-color: rgb(110, 110, 110); height: 85vw;}
+footer .center .logo{padding-left: 25px; width: 30vw; margin-bottom: 10px; padding-top: 10px;}
+footer .information ul{display: flex; justify-content: space-between; flex-flow: row wrap; padding: 0 30px;}
+footer .information ul li a{color: #ffffff; font-size: 14px; padding-right: 5px; letter-spacing: -2px; margin-bottom: 30px;}
+footer .information ul li:first-child a{font-weight: bold; color: #dfdfdf;}
+footer address{font-style: normal; padding: 0 30px; margin-bottom: 10px; color: white;}
+footer p{padding: 0 30px; color: white; }
+footer .family_site{width: 85%; margin: 50px auto;  position: relative; }
+footer .family_site a{color: #000000; font-weight: bold; font-size: 14px; padding: 7px; text-align: center;}
+footer .family_site > a{border: 1px solid #aaa; font-size: 16px; position: relative; background-color: #ffffff;}
+footer .family_site > a:after{ /* 삼각형 화살표 */
+    content:""; border-top: 8px solid #a3a3a3; border-right: 6px solid transparent; border-left: 6px solid transparent;
+    position: absolute; top: 15px; right: 20px; transform: rotate(0deg);
+}
+footer .family_site .family_list{width: 100%; position: absolute; bottom: 38px; left: 0; display: none;}
+footer .family_site .family_list a{
+    background:linear-gradient(to right, rgb(84, 84, 255), rgb(255, 111, 255)); 
+    border: 1px solid white; border-bottom: none;
+}
+footer .family_site .family_list a:hover{background-color: #444;}
+footer .family_site > a.active:after{transform: rotate(180deg);}
+
+.top{position:fixed; right: 20px; bottom: 20px; width: 50px; height: 50px; padding: 10px;}
+
+/* ========================================================================================= */
+/* 미디어 쿼리 태블릿버전 */
+@media screen and(min-width:768px) {
+    .center{width: 100%; margin: 0 auto;}
+    header .center .logo{width: 100px; height: 10px;}
+}
+/* ========================================================================================= */
+/* 미디어 쿼리 pc버전 */
+@media screen and (min-width:1280px){
+    a{font-weight: bold;}
+    /* 1440/1920*100=75%, 1200/1920*100=62.5% 메인슬라이드빼고 다 가운데1200정렬 네이버 다음도 가운데정렬*/
+    section .center{
+        width: 1200px; margin: 0 auto; gap:20px; padding: 0 20px;
+        display: flex; flex-flow: row nowrap;
+    }
+    header .center .logo{width: 100px; height: 40px; margin-right: 20px;}
+    header{height: 90px; padding: 0; box-sizing: border-box;}
+    header .center{height: 80px; padding: 0 12vw;}
+    header .center nav{
+        position: relative; width: 55vw; right: auto; left: auto; top: auto; height: 60px; 
+        background-color: transparent; padding: 0; border-top: none;
+    }
+    header .center nav > ul{display: flex; justify-content: space-between;}
+    header .center nav > ul > li{position: relative}
+    header .center nav > ul > li > a{font-size: 1.2vw; padding: 1vw 0vw; color: #fff; 
+    }
+    header.minimize .center nav > ul > li > a{color: #333;}
+    /* 주메뉴 밑줄 애니메이션 */
+    header .center nav > ul > li > a:after{
+        content:""; width: 0; left: 50%; height: 2px; background-color: #7030A0;
+        top: 80px; transition: all 0.5s;
+    }
+    header.minimize .center nav > ul > li:hover > a:after{
+        left: 0; width: 100%;
+    }
+    header .center nav > ul > li > a:before{display: none;}
+    /* header .center nav > ul > li > a:after{display: none;} */
+
+    header .center nav .sub{position: absolute; transform: translateX(-50%); left: 50%;
+        display: none; background-color: transparent; padding: 1vw 0; height: auto;
+    }
+    header .center nav .sub li a{font-size: 0.8vw; padding: 0.5vw 0; text-align: center; margin-top: 10px;}
+
+    header .center nav ul .community .sub.active{opacity: 1;}
+    header .center nav .sub li:first-child{grid-area:list01;}
+    header .center nav .sub li:nth-child(2){grid-area:list02;}
+    header .center nav .sub li:nth-child(3){grid-area:list03;}
+    header .center nav .sub li:nth-child(4){grid-area:list04;}
+    header .center nav .sub li:nth-child(5){grid-area:list05;}
+    header .center nav .sub li:nth-child(6){grid-area:list06;}
+    header .center nav .sub li:nth-child(7){grid-area:list07;}
+    header .center nav .sub li:nth-child(8){grid-area:list08;}
+    header .center nav .sub li:nth-child(9){grid-area:list09;}
+    header .center nav .sub li:nth-child(10){grid-area:list10;}
+    header .center nav .sub li:nth-child(11){grid-area:list11;}
+    header .center nav .sub li:nth-child(12){grid-area:list12;}
+    header .center nav .sub li:nth-child(13){grid-area:list13;}
+    header .center nav .sub li:nth-child(14){grid-area:list14;}
+    header .center nav .sub li:nth-child(15){grid-area:list15;}
+    header .center nav .sub li:nth-child(16){grid-area:list16;}
+    header .center nav .sub li:nth-child(17){grid-area:list17;}
+    header .center nav .sub li:nth-child(18){grid-area:list18;}
+    header .center nav .sub li:nth-child(19){grid-area:list19;}
+    header .center nav .sub li:last-child{grid-area:list20;}
+    header .center nav ul {position: relative;}
+    header .center nav ul .community .sub{
+        display: grid; grid-template-columns: repeat(4, auto);
+        grid-auto-rows: repeat(5, auto); grid-gap: 10px;
+        grid-template-areas: 
+            "list01 list02 list03 list04"
+            "list05 list06 list07 list08"
+            "list09 list10 list11 list12"
+            "list13 list14 list15 list16"
+            "list17 list18 list19 list20";
+            position: absolute; bottom: -362px; left: 150px; opacity: 0;
+    }
+    header .center nav ul li:hover > a{color: #7030A0;}
+    header.minimize .center nav > ul > li:hover > a{color: #7030A0;}
+    /* 서브메뉴배경 */
+    header .sub_bg{
+        display: block; margin-top: 10px;
+        border-top: 1px solid #ddd;
+        position: absolute; top: 80px; background-color: #fff; 
+        width: 100%; height: 0px; z-index: 90; transition: all 0.3s;
+        opacity: 0;
+    }
+    header .sub_bg.active{height: 320px; opacity: 1;}
+    header .center .top_menu{margin-left: 20px; width: 4vw; padding-top: 0.6vw;}
+    header .center .top_menu ul li{width: 1.5vw;}
+
+    .sec2, .sec3, .sec4, .sec6{padding: 5vw 0;}
+    section .main .s1{background-image: url(../img/manchester_city\ winner.png);}
+    section .main .s2{background-image: url(../img/stadium-png.png);}
+    section .main .s3{background-image: url(../img/run.png);}
+
+    section .main .swiper-slide h1{font-size: 25px; padding: 1vw 2vw;}
+    section .main .swiper-slide p{text-indent: 0px; padding: 0 2vw; color: white;}
+    .sec2 .center{padding: 0 12vw;}
+    .sec2 .center div{width: 50%; padding: 2vw;}
+    .firstAni{transition-delay:0s;}
+    .secondAni{transition-delay: 0s;}
+    .sec2 .table, .result{height: 70vh;}
+    .sec2 .center h2{font-size: 35px; top: -50px; left: 10px;}
+    .sec2 .center div button{
+        position: absolute; bottom: 10px; right: 10px; width: 30%; height: 7%; border-radius: 30px;
+        background-color: #7030A0; border: none;
+    }
+    .sec2 .center .table .table_photo{border-radius: 10px;
+        background-image: url(../img/a_table.png); background-position: top;
+        background-size: 350px 650px; width: 100%; height: 100%; background-repeat: no-repeat;
+    }
+    .sec2 .center .result .result_photo{border-radius: 10px;
+        background-position: top; 
+        background-size: 350px 650px; width: 100%; height: 100%; background-repeat: no-repeat
+    }
+
+    .sec2 .center div button:hover{background-color: white; border: 1px solid #7030A0; transition: all 0.3s;}
+    .sec2 .center div button:hover a{color: #7030A0;}
+    .sec3 .center .swiper-slide div .play_button{
+        position: absolute; bottom: 80px; right:180px; border-radius: 50px; width: 70px;
+    }
+    .sec3 .center div button:hover{background-color: #7030A0; transition: all 0.3s;}
+    .sec3 .center div button:hover a{color: white; transition: all 0.3s;}
+    .sec3 .center .swiper-slide div:hover .play_button{transform: scale(1.3); transition: all 0.5s;}
+    .sec3 .center ,
+    .sec4 .center{position: relative; overflow: visible;}
+    .sec3 .center .content,
+    .sec4 .center .content{width: 40%;}
+    .sec3 .center .swiper,
+    .sec4 .center .swiper{
+        width: 60%; overflow: unset; /* 부모로부터 속성 상속안받는다 값재설정 */
+        clip-path: inset(0 -100vw 0 0); /* 오른쪽 보이는 영역확장 */
+    }
+    /* prev 버튼, next 버튼 보임 */
+    .sec3 .swiper-button-prev,
+    .sec3 .swiper-button-next,
+    .sec4 .swiper-button-prev,
+    .sec4 .swiper-button-next{
+        display: block; position: absolute; left: 0; bottom: 0;
+        border: 2px solid #7030a0; border-radius: 100%;
+        width: 60px; height: 60px; transition: all 0.3s;
+    }
+    .sec3 .swiper-button-prev:hover,
+    .sec3 .swiper-button-next:hover,
+    .sec4 .swiper-button-prev:hover,
+    .sec4 .swiper-button-next:hover{background-color: #7030A0;}
+
+    .sec3 .swiper-button-prev:hover:after,
+    .sec3 .swiper-button-next:hover:after,
+    .sec4 .swiper-button-prev:hover:after,
+    .sec4 .swiper-button-next:hover:after{color: white;}
+    .sec3 .swiper-button-next{left: 140px; top: 240px;}
+    .sec3 .swiper-button-prev{left:25px; top: 240px;}
+    .sec4 .swiper-button-next{left: 140px; top: 600px;}
+    .sec4 .swiper-button-prev{left:25px; top: 600px;}
+
+    .sec3 .swiper-button-prev:after,
+    .sec3 .swiper-button-next:after,
+    .sec4 .swiper-button-prev:after,
+    .sec4 .swiper-button-next:after{
+        font-size: 25px; text-align: center; line-height: 60px; color: #000; 
+        width: 100%; display: block; font-weight: bold; transition: all 0.3s;
+    }
+    /* progressbar 보임 */
+    .sec3 .swiper .swiper-pagination,
+    .sec4 .swiper .swiper-pagination{display: block;}
+    section .swiper .swiper-slide .player{border-radius: 30px;
+        width: 100%; height: 650px; background-position: center; background-size: cover; background-repeat: no-repeat;
+    }
+
+    .sec4 .info .swiper-slide div .more button{width: 30%; height: 7%;}
+    .sec4 .info .swiper-slide div .more button:hover{background-color: #7030A0; transition: all 0.3s;}
+    .sec4 .info .swiper-slide div .more button:hover a{color: white;}
+    section .swiper .swiper-slide .player{border-radius: 30px;
+        width: 100%; height: 600px; background-position: center; 
+        background-size: contain; background-repeat: no-repeat;
+    }
+    .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+        background:linear-gradient(to right, rgb(84, 84, 255), rgb(255, 111, 255))
+    }
+    .sec3 .swiper, .sec4 .swiper{padding-bottom: 30px;}
+    .sec3 .swiper .swiper-pagination,
+    .sec4 .swiper .swiper-pagination{top: auto; bottom: 0; display: block; }
+
+    .sec5{padding: 5vw 0;}
+    .sec5{height: 700px;}
+    .sec5 .center{align-items: flex-start;}
+    .sec5 .center .content p{font-size: 3vw; white-space: nowrap; }
+    .sec5 .graph{display: block; margin-top: 80px; position: absolute; width: 50%;}
+    .sec5 .center .statics{margin-left: 600px; margin-top: 150px;}
+    .sec5 .center .statics .count{white-space: nowrap; position: absolute; right: -50px;}
+    .sec5 .center .statics .count span{font-size: 4vw; letter-spacing: -8px;}
+    .sec5 .center .statics h2{font-size: 2vw;}
+
+    
+    /* .sec6 .center{position: relative; justify-content: flex-end;} content를 absolute left0 top0 */
+    .sec6 .center .club_logo{position: relative;}
+    .sec6 .center .club_logo ul{display: grid; grid-template-columns: repeat(4, 220px);
+        grid-auto-rows: minmax(140px, auto); grid-gap: 10px;
+        grid-template-areas: 
+            ". . . list01"
+            ". . list02 list03"
+            ". list04 list05 list06"
+            "list07 list08 list09 list10";
+            position: absolute; bottom:-600px; left: -180px;
+    }
+
+    .sec6 .center .club_logo ul li{width: 220px; height: 140px; cursor: pointer;}
+    .sec6 .center span{letter-spacing: 0px; white-space: nowrap;}
+    .sec6 .center .club_logo ul li:last-child{padding-left: 40px; padding-top: 40px;}
+    .sec6 .center .club_logo ul li:last-child button {height: 40px;}
+    .sec6 .center .club_logo ul li:last-child button:hover{
+        background-color: #7030A0; transition: all 0.3s;
+    }
+    .sec6 .center .club_logo ul li{transition: all 0.5s;}
+    .sec6 .center .club_logo ul li:nth-child(-n+9):hover{transform: translate(-5px, -5px); box-shadow: 5px 7px 12px rgba(0,0,0,0.3);}
+    .sec6 .center .club_logo ul li:last-child button:hover a{color: white;}
+
+    .support{height: 170px;}
+    .support h1{font-size: 25px;}
+    .support ul{width: 600px; margin: 0 auto;}
+    .support ul li{width: 50px; height: 50px; cursor: pointer;}
+    .support ul li:hover{transform: scale(1.2); transition: all 0.3s;}
+
+    footer{height: 63vh;}
+    footer .center .footer2{padding: 0 5vw 2vw 5vw;}
+    footer .center .footer1{padding: 2vw 10vw;}
+    footer .center .footer1 .logo{width: 150px;}
+    footer .center .footer1 .information ul{display: flex; justify-content: space-between; width: 50%;}
+    footer .footer2{border-top: 1px solid white; margin-top: 50px;}
+    
+
+
+
+
+
+}
