@@ -338,7 +338,7 @@ footer .family_site > a.active:after{transform: rotate(180deg);}
     header .center nav .sub li:nth-child(18){grid-area:list18;}
     header .center nav .sub li:nth-child(19){grid-area:list19;}
     header .center nav .sub li:last-child{grid-area:list20;}
-    header .center nav ul {position: relative;}
+
     header .center nav ul .community .sub{
         display: grid; grid-template-columns: repeat(4, auto);
         grid-auto-rows: repeat(5, auto); grid-gap: 10px;
@@ -348,7 +348,7 @@ footer .family_site > a.active:after{transform: rotate(180deg);}
             "list09 list10 list11 list12"
             "list13 list14 list15 list16"
             "list17 list18 list19 list20";
-            position: absolute; bottom: -362px; left: 150px; opacity: 0;
+            margin-left: 150px; opacity: 0;
     }
     header .center nav ul li:hover > a{color: #7030A0;}
     header.minimize .center nav > ul > li:hover > a{color: #7030A0;}
@@ -459,11 +459,11 @@ footer .family_site > a.active:after{transform: rotate(180deg);}
     .sec4 .swiper .swiper-pagination{top: auto; bottom: 0; display: block; }
 
     .sec5{padding: 5vw 0;}
-    .sec5{height: 700px;}
-    .sec5 .center{align-items: flex-start;}
+    .sec5{height: 600px;}
+    .sec5 .center{display: flex; justify-content: space-between; width: 1100px;}
     .sec5 .center .content p{font-size: 3vw; white-space: nowrap; }
-    .sec5 .graph{display: block; margin-top: 80px; position: absolute; width: 50%;}
-    .sec5 .center .statics{margin-left: 600px; margin-top: 150px;}
+    .sec5 .graph{display: block; margin-top: 80px; position: absolute; width: 35%;}
+    .sec5 .center .statics{padding-top: 100px;}
     .sec5 .center .statics .count{white-space: nowrap; position: absolute; right: -50px;}
     .sec5 .center .statics .count span{font-size: 4vw; letter-spacing: -8px;}
     .sec5 .center .statics h2{font-size: 2vw;}
